@@ -3,11 +3,11 @@
 #include "PositionSystem.h"
 #include "EntityComponentManager.h"
 #include "PositionComponent.h"
-#include "MovementComponent.h"
 #include <mutex>
 #include "ThreadPool.h"
-#include "HitboxComponent.h"
 #include "GameState.h"
+#include "DraggableComponent.h"
+#include "InputState.h"
 
 PositionSystem::PositionSystem() : BaseSystem()
 {
@@ -19,9 +19,20 @@ PositionSystem::~PositionSystem()
 }
 
 void ProcessJob(ECS::EntityComponentManager &ecs, int entityIndex){
-    MovementComponent& movementComponent = *ecs.GetComponent<MovementComponent>(entityIndex);
+
     PositionComponent& positionComponent = *ecs.GetComponent<PositionComponent>(entityIndex);
 
+    std::shared_ptr<DraggableComponent> dragPtr = ecs.GetComponent<DraggableComponent>(entityIndex);
+    if (dragPtr != nullptr){
+        DraggableComponent d = *dragPtr.get();
+        if (d.Dragging){
+            positionComponent.PositionX = InputState::Instance().CursorX;
+            positionComponent.PositionY = InputState::Instance().CursorY;
+        }
+    }
+
+
+    /*
     positionComponent.PositionX += movementComponent.HorizontalSpeed;
     positionComponent.PositionY += movementComponent.VerticalSpeed; // Since a positive vspeed means it's moving up, need to reverse it
 
@@ -54,13 +65,13 @@ void ProcessJob(ECS::EntityComponentManager &ecs, int entityIndex){
         positionComponent.PositionY = 0;
         movementComponent.VerticalSpeed = 0;
     }
+
+    */
 }
 
 bool PositionSystem::Process(ECS::EntityComponentManager &ecs){
     // ignore everything else for not
     std::vector<int> entities = ecs.Search<PositionComponent>();
-    entities = ecs.SearchOn<MovementComponent>(entities);
-
 
     std::vector<int>::iterator it;
 

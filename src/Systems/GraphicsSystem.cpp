@@ -9,9 +9,9 @@
 #include "InputState.h"
 #include <mutex>
 #include "GameState.h"
-#include "HitboxComponent.h"
 #include "VisibleComponent.h"
-#include "DeckComponent.h"
+#include "SdlRectangleComponent.h"
+#include "DraggableComponent.h"
 
 const int SCREEN_WIDTH = 1920;
 const int SCREEN_HEIGHT = 1080;
@@ -44,6 +44,46 @@ void GraphicsSystem::ProcessJob(ECS::EntityComponentManager &ecs, int entityId){
 
     std::shared_ptr<PositionComponent> positionPtr = ecs.GetComponent<PositionComponent>(entityId);
 
+    if (positionPtr == nullptr){
+        return;
+    }
+
+    PositionComponent position = *positionPtr.get();
+
+    std::shared_ptr<SdlRectangleComponent> rectanglePtr = ecs.GetComponent<SdlRectangleComponent>(entityId);
+    if (rectanglePtr != nullptr){
+        SdlRectangleComponent rectangle = *rectanglePtr.get();
+
+        SDL_SetRenderDrawColor(_renderer, rectangle.Color.Red, rectangle.Color.Green, rectangle.Color.Blue, rectangle.Color.Alpha);
+
+        SDL_Rect sdlRect;
+
+        sdlRect.x = position.PositionX;
+        sdlRect.y = position.PositionY;
+        sdlRect.w = rectangle.Width;
+        sdlRect.h = rectangle.Height;
+
+        SDL_RenderDrawRect(_renderer, &sdlRect);
+    }
+
+    std::shared_ptr<DraggableComponent> draggablePtr = ecs.GetComponent<DraggableComponent>(entityId);
+    if (draggablePtr != nullptr){
+        DraggableComponent dragComponent = *draggablePtr.get();
+
+        SDL_SetRenderDrawColor(_renderer, 144, 145, 142, SDL_ALPHA_OPAQUE);
+
+        SDL_Rect sdlRect;
+
+        sdlRect.x = position.PositionX;
+        sdlRect.y = position.PositionY;
+        sdlRect.w = dragComponent.Width;
+        sdlRect.h = dragComponent.Height;
+
+        SDL_RenderDrawRect(_renderer, &sdlRect);
+
+    }
+
+/*
     // Draw Hitboxes
     if (DrawHitboxes){
         std::shared_ptr<HitboxComponent> rectanglePtr = ecs.GetComponent<HitboxComponent>(entityId);
@@ -115,6 +155,8 @@ void GraphicsSystem::ProcessJob(ECS::EntityComponentManager &ecs, int entityId){
             SDL_RenderFillRect(_renderer, &sdlRect);
         }
     }
+
+    */
 }
 
 bool GraphicsSystem::Process(ECS::EntityComponentManager &ecs){

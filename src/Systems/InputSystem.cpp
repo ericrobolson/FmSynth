@@ -8,8 +8,10 @@
 #include "ThreadPool.h"
 #include <future>
 #include <fstream>
-#include "StringOperations.h"
-#include "DeckComponent.h"
+#include "SynthAssemblage.h"
+#include <memory>
+#include "DraggableComponent.h"
+#include "PositionComponent.h"
 
 InputSystem::InputSystem() : BaseSystem()
 {
@@ -17,55 +19,64 @@ InputSystem::InputSystem() : BaseSystem()
         SDL_Init(SDL_INIT_EVENTS);
     }
     _exit = false;
-
-    // Load config file?
-    std::ifstream file("config/config.json", std::ios::in);
-
-    if (file.is_open()){
-        const std::string keyboardUp = "keyboardUp";
-        const std::string keyboardDown = "keyboardDown";
-        const std::string keyboardLeft = "keyboardLeft";
-        const std::string keyboardRight = "keyboardRight";
-        const std::string keyboardQuit = "keyboardQuit";
-        const std::string keyboardPause = "keyboardPause";
-
-        // TODO: These keys
-        const std::string keyboardNextCard = "keyboardNextCard";
-        const std::string keyboardPreviousCard = "keyboardPreviousCard";
-        const std::string keyboardUseCard = "keyboardUseCard";
-
-        for(std::string line; getline(file, line);){
-            if (line.length() > 0){
-                // skip comments
-                if (line[0] == '#'){
-                    continue;
-                }
-
-                if (line.find(keyboardQuit) != std::string::npos){
-                    _keyMapper.Escape = StringOperations::ParseIntegers(line);
-                }else if (line.find(keyboardUp) != std::string::npos){
-                    _keyMapper.Up = StringOperations::ParseIntegers(line);
-                }else if (line.find(keyboardDown) != std::string::npos){
-                    _keyMapper.Down = StringOperations::ParseIntegers(line);
-                }else if (line.find(keyboardLeft) != std::string::npos){
-                    _keyMapper.Left = StringOperations::ParseIntegers(line);
-                }else if (line.find(keyboardRight) != std::string::npos){
-                    _keyMapper.Right = StringOperations::ParseIntegers(line);
-                }else if (line.find(keyboardPause) != std::string::npos){
-                    _keyMapper.Pause = StringOperations::ParseIntegers(line);
-                }
-            }
-        }
-
-        file.close();
-
-    }
-
-
 }
+
+void LeftClickReleaseEvent(ECS::EntityComponentManager &ecs){
+    std::vector<int> entities = ecs.Search<DraggableComponent>();
+
+    std::vector<int>::iterator ptr;
+    for (ptr = entities.begin(); ptr < entities.end(); ptr++){
+        int entityId = *ptr;
+
+        DraggableComponent& d = *ecs.GetComponent<DraggableComponent>(entityId);
+        d.Dragging = false;
+    }
+}
+
+void LeftClickEvent(ECS::EntityComponentManager &ecs){
+    std::vector<int> entities = ecs.Search<DraggableComponent>();
+
+    // Get only things that could have been partially clicked on
+    entities = ecs.SearchOn<PositionComponent>(entities,
+        [](PositionComponent p){
+            int cursorX = InputState::Instance().CursorX;
+            int cursorY = InputState::Instance().CursorY;
+
+            if (cursorX >= p.PositionX
+                && cursorY >= p.PositionY){
+                return true;
+            }
+            return false;
+    });
+
+    int cursorX = InputState::Instance().CursorX;
+    int cursorY = InputState::Instance().CursorY;
+
+    int draggableWidth = DraggableComponent::Width;
+    int draggableHeight = DraggableComponent::Height;
+
+    std::vector<int>::iterator ptr;
+    for (ptr = entities.begin(); ptr < entities.end(); ptr++){
+        int entityId = *ptr;
+
+        PositionComponent p = *ecs.GetComponent<PositionComponent>(entityId);
+
+        // Check to see if the click was on a draggable position
+        if (cursorX <= (p.PositionX + draggableWidth) && cursorY <= (p.PositionY + draggableHeight))
+        {
+            DraggableComponent& d = *ecs.GetComponent<DraggableComponent>(entityId);
+            d.Dragging = true;
+        }
+    }
+}
+
 
 bool InputSystem::Process(ECS::EntityComponentManager &ecs){
     SDL_Event event;
+
+    // Set the cursor position
+    SDL_GetMouseState(&InputState::Instance().CursorX, &InputState::Instance().CursorY);
+
 
     while (SDL_PollEvent(&event))
     {
@@ -77,56 +88,24 @@ bool InputSystem::Process(ECS::EntityComponentManager &ecs){
         SDL_Keycode key = event.key.keysym.sym;
 
         if (event.type == SDL_KEYDOWN) {
-            if (_keyMapper.Up == key){
-                InputState::Instance().ButtonUpIsPressed = true;
-
-
-                    // Select next card?
-                    std::vector<int> entities = ecs.Search<DeckComponent>();
-
-                    while (entities.empty() == false){
-                        int entityId = entities.back();
-                        entities.pop_back();
-
-                        DeckComponent& deck = *ecs.GetComponent<DeckComponent>(entityId);
-                        deck.SelectNextCard();
-                    }
-
-            }else if (_keyMapper.Down == key){
-                InputState::Instance().ButtonDownIsPressed = true;
-            }else if (_keyMapper.Left == key){
-                InputState::Instance().ButtonLeftIsPressed = true;
-            }else if (_keyMapper.Right == key){
-                InputState::Instance().ButtonRightIsPressed = true;
-            }else if (_keyMapper.Pause == key){
-                GameState::Instance().Paused = !GameState::Instance().Paused;
-            }else if (_keyMapper.Escape == key){
-                InputState::Instance().Exit = true;
-                _exit = true;
-            }else if (_keyMapper.Escape == key){
+            if (_keyMapper.Escape == key){
                 InputState::Instance().Exit = true;
                 _exit = true;
             }
         }
          if (event.type == SDL_KEYUP) {
-            if (_keyMapper.Up == key){
-                InputState::Instance().ButtonUpIsPressed = false;
-            }else if (_keyMapper.Down == key){
-                InputState::Instance().ButtonDownIsPressed = false;
-            }else if (_keyMapper.Left == key){
-                InputState::Instance().ButtonLeftIsPressed = false;
-            }else if (_keyMapper.Right == key){
-                InputState::Instance().ButtonRightIsPressed = false;
-            }
         }
         else if (event.type == SDL_MOUSEBUTTONDOWN){
             switch (event.button.button){
                 case SDL_BUTTON_LEFT:
-
                     InputState::Instance().Button1IsPressed = true;
+
+                    LeftClickEvent(ecs);
+
                     break;
                 case SDL_BUTTON_RIGHT:
                     InputState::Instance().Button2IsPressed = true;
+                    SynthAssemblage::Create(ecs, InputState::Instance().CursorX, InputState::Instance().CursorY);
                     break;
             }
         }
@@ -134,15 +113,14 @@ bool InputSystem::Process(ECS::EntityComponentManager &ecs){
             switch (event.button.button){
                 case SDL_BUTTON_LEFT:
                     InputState::Instance().Button1IsPressed = false;
+
+                    LeftClickReleaseEvent(ecs);
                     break;
                 case SDL_BUTTON_RIGHT:
                     InputState::Instance().Button2IsPressed = false;
                     break;
             }
         }
-
-        // Set the cursor position
-        SDL_GetMouseState(&InputState::Instance().CursorX, &InputState::Instance().CursorY);
     }
 
     return !_exit;

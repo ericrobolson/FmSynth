@@ -1,0 +1,648 @@
+# depslib dependency file v1.0
+1542244976 source:c:\users\eric\gamedev\fmsynth\main.cpp
+	<SDL.h>
+	<chrono>
+	<thread>
+	<exception>
+	<iostream>
+	"Worlds/GameWorld.h"
+	"ThreadPool.h"
+	"catch.hpp"
+	<iostream>
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_assert.h"
+	"SDL_atomic.h"
+	"SDL_audio.h"
+	"SDL_clipboard.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_filesystem.h"
+	"SDL_gamecontroller.h"
+	"SDL_haptic.h"
+	"SDL_hints.h"
+	"SDL_joystick.h"
+	"SDL_loadso.h"
+	"SDL_log.h"
+	"SDL_messagebox.h"
+	"SDL_mutex.h"
+	"SDL_power.h"
+	"SDL_render.h"
+	"SDL_rwops.h"
+	"SDL_shape.h"
+	"SDL_system.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_version.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<wchar.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<math.h>
+	<float.h>
+	<sal.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_config.h
+	"SDL_platform.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_platform.h
+	"AvailabilityMacros.h"
+	"TargetConditionals.h"
+	<winapifamily.h>
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\begin_code.h
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\close_code.h
+
+1341006780 c:\tdm-gcc-32\include\sys\types.h
+	<_mingw.h>
+	<stddef.h>
+
+1341006771 c:\tdm-gcc-32\include\_mingw.h
+
+1341006776 c:\tdm-gcc-32\include\stdio.h
+	<_mingw.h>
+	<stddef.h>
+	<stdarg.h>
+	<sys/types.h>
+
+1341006777 c:\tdm-gcc-32\include\stdlib.h
+	<_mingw.h>
+	<stddef.h>
+
+1341006774 c:\tdm-gcc-32\include\malloc.h
+	<_mingw.h>
+	<stdlib.h>
+
+1341006775 c:\tdm-gcc-32\include\memory.h
+	<string.h>
+
+1341006777 c:\tdm-gcc-32\include\string.h
+	<_mingw.h>
+	<stddef.h>
+
+1341006777 c:\tdm-gcc-32\include\strings.h
+	<string.h>
+
+1341006778 c:\tdm-gcc-32\include\wchar.h
+	<_mingw.h>
+	<stddef.h>
+	<stdarg.h>
+	<wctype.h>
+	<sys/types.h>
+	<stdio.h>
+	<stdint.h>
+	<stdint.h>
+
+1341006778 c:\tdm-gcc-32\include\wctype.h
+	<_mingw.h>
+	<stddef.h>
+
+1341006776 c:\tdm-gcc-32\include\stdint.h
+	<stddef.h>
+
+1341006773 c:\tdm-gcc-32\include\inttypes.h
+	<_mingw.h>
+	<stdint.h>
+	<stddef.h>
+
+1341006771 c:\tdm-gcc-32\include\ctype.h
+	<_mingw.h>
+	<stddef.h>
+
+1341006774 c:\tdm-gcc-32\include\math.h
+	<_mingw.h>
+
+1341006773 c:\tdm-gcc-32\include\float.h
+	<_mingw.h>
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_assert.h
+	"SDL_config.h"
+	"begin_code.h"
+	<signal.h>
+	"close_code.h"
+
+1341006776 c:\tdm-gcc-32\include\signal.h
+	<_mingw.h>
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_atomic.h
+	"SDL_stdinc.h"
+	"SDL_platform.h"
+	"begin_code.h"
+	<mbarrier.h>
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_atomic.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	<process.h>
+	<stdlib.h>
+	"close_code.h"
+
+1341006775 c:\tdm-gcc-32\include\process.h
+	<_mingw.h>
+	<sys/types.h>
+	<stdint.h>
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_clipboard.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_cpuinfo.h
+	"SDL_stdinc.h"
+	<intrin.h>
+	<intrin.h>
+	<altivec.h>
+	<mm3dnow.h>
+	<immintrin.h>
+	<mmintrin.h>
+	<xmmintrin.h>
+	<emmintrin.h>
+	<pmmintrin.h>
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_gamecontroller.h"
+	"SDL_quit.h"
+	"SDL_gesture.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_video.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_pixels.h
+	"SDL_stdinc.h"
+	"SDL_endian.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_rect.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_pixels.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_surface.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_blendmode.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_blendmode.h
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keycode.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_keycode.h
+	"SDL_stdinc.h"
+	"SDL_scancode.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_scancode.h
+	"SDL_stdinc.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_gamecontroller.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_gesture.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"SDL_touch.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_touch.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_filesystem.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_haptic.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_joystick.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_hints.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_log.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_messagebox.h
+	"SDL_stdinc.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_power.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_render.h
+	"SDL_stdinc.h"
+	"SDL_rect.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_shape.h
+	"SDL_stdinc.h"
+	"SDL_pixels.h"
+	"SDL_rect.h"
+	"SDL_surface.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_system.h
+	"SDL_stdinc.h"
+	"SDL_keyboard.h"
+	"SDL_render.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1519922211 c:\mingw_dev_lib32bit\i686-w64-mingw32\include\sdl2\sdl_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1543591590 c:\users\eric\gamedev\fmsynth\include\worlds\gameworld.h
+	<time.h>
+	"BaseWorld.h"
+	"GraphicsSystem.h"
+	"InputSystem.h"
+	"PositionSystem.h"
+	"SystemTimer.h"
+
+1341006777 c:\tdm-gcc-32\include\time.h
+	<_mingw.h>
+	<stddef.h>
+
+1538150203 c:\users\eric\gamedev\fmsynth\include\baseworld.h
+	"EntityComponentManager.h"
+
+1541793506 c:\users\eric\gamedev\fmsynth\include\entitycomponentmanager.h
+	<memory>
+	<typeindex>
+	<typeinfo>
+	<unordered_map>
+	<list>
+	"BaseComponent.h"
+	<vector>
+	<thread>
+	<mutex>
+
+1536912706 c:\users\eric\gamedev\fmsynth\include\basecomponent.h
+
+1541778998 c:\users\eric\gamedev\fmsynth\include\systems\graphicssystem.h
+	<SDL.h>
+	"BaseSystem.h"
+	"EntityComponentManager.h"
+	<mutex>
+
+1542123991 c:\users\eric\gamedev\fmsynth\include\basesystem.h
+	"EntityComponentManager.h"
+	"SystemTimer.h"
+
+1542124244 c:\users\eric\gamedev\fmsynth\include\systems\systemtimer.h
+	<time.h>
+
+1542225935 c:\users\eric\gamedev\fmsynth\include\systems\inputsystem.h
+	"BaseSystem.h"
+	"EntityComponentManager.h"
+	<SDL.h>
+
+1538244977 c:\users\eric\gamedev\fmsynth\include\systems\positionsystem.h
+	"BaseSystem.h"
+	"EntityComponentManager.h"
+
+1541550760 c:\users\eric\gamedev\fmsynth\include\threading\threadpool.h
+	<functional>
+	<future>
+	<mutex>
+	<queue>
+	<thread>
+	<utility>
+	<vector>
+	"SafeQueue.h"
+
+1538613257 c:\users\eric\gamedev\fmsynth\include\threading\safequeue.h
+	<mutex>
+	<queue>
+
+1536912897 source:c:\users\eric\gamedev\fmsynth\src\basecomponent.cpp
+	"BaseComponent.h"
+
+1538150211 source:c:\users\eric\gamedev\fmsynth\src\basesystem.cpp
+	"BaseSystem.h"
+	"EntityComponentManager.h"
+
+1537922135 source:c:\users\eric\gamedev\fmsynth\src\baseworld.cpp
+	"BaseWorld.h"
+
+1541548668 source:c:\users\eric\gamedev\fmsynth\src\components\gfx\sdlrectanglecomponent.cpp
+	"SdlRectangleComponent.h"
+
+1543593024 c:\users\eric\gamedev\fmsynth\include\components\gfx\sdlrectanglecomponent.h
+	"BaseComponent.h"
+	"ColorComponent.h"
+
+1542837194 source:c:\users\eric\gamedev\fmsynth\src\components\gfx\visiblecomponent.cpp
+	"VisibleComponent.h"
+
+1542837194 c:\users\eric\gamedev\fmsynth\include\components\gfx\visiblecomponent.h
+	"BaseComponent.h"
+
+1537028561 source:c:\users\eric\gamedev\fmsynth\src\components\positioncomponent.cpp
+	"PositionComponent.h"
+
+1536912715 c:\users\eric\gamedev\fmsynth\include\components\positioncomponent.h
+	<BaseComponent.h>
+
+1542835289 source:c:\users\eric\gamedev\fmsynth\src\eventqueue\eventqueue.cpp
+	"EventQueue.h"
+
+1542835283 c:\users\eric\gamedev\fmsynth\include\eventqueue\eventqueue.h
+	<memory>
+	<vector>
+
+1539115806 source:c:\users\eric\gamedev\fmsynth\src\state\gamestate.cpp
+	"GameState.h"
+
+1541779561 c:\users\eric\gamedev\fmsynth\include\state\gamestate.h
+	<vector>
+
+1537654902 source:c:\users\eric\gamedev\fmsynth\src\state\inputstate.cpp
+	"InputState.h"
+
+1537654906 c:\users\eric\gamedev\fmsynth\include\state\inputstate.h
+
+1542123985 source:c:\users\eric\gamedev\fmsynth\src\systems\collisionsystem.cpp
+	"CollisionSystem.h"
+	"EntityComponentManager.h"
+	"GameState.h"
+	"MovementComponent.h"
+	"HitboxComponent.h"
+	"PositionComponent.h"
+	"ThreadPool.h"
+	"ImpassibleComponent.h"
+	"CanJumpComponent.h"
+	"HasJumpActionComponent.h"
+	<future>
+	<memory>
+
+1543594214 source:c:\users\eric\gamedev\fmsynth\src\systems\graphicssystem.cpp
+	<SDL.h>
+	<list>
+	"GraphicsSystem.h"
+	"EntityComponentManager.h"
+	"PositionComponent.h"
+	<math.h>
+	<future>
+	"ThreadPool.h"
+	"InputState.h"
+	<mutex>
+	"GameState.h"
+	"VisibleComponent.h"
+	"SdlRectangleComponent.h"
+	"DraggableComponent.h"
+
+1542124044 source:c:\users\eric\gamedev\fmsynth\src\systems\movementsystem.cpp
+	<list>
+	<math.h>
+	"MovementSystem.h"
+	"EntityComponentManager.h"
+	<future>
+	"MovementComponent.h"
+	"PositionComponent.h"
+	"InputState.h"
+	"Debugger.h"
+	<memory.h>
+	"ThreadPool.h"
+	<chrono>
+	"PlayerComponent.h"
+	"CanJumpComponent.h"
+	"HasJumpActionComponent.h"
+
+1538247295 c:\users\eric\gamedev\fmsynth\include\debugger.h
+	<string>
+	<iostream>
+
+1543595541 source:c:\users\eric\gamedev\fmsynth\src\systems\positionsystem.cpp
+	<cstddef>
+	"PositionSystem.h"
+	"EntityComponentManager.h"
+	"PositionComponent.h"
+	<mutex>
+	"ThreadPool.h"
+	"GameState.h"
+	"DraggableComponent.h"
+	"InputState.h"
+
+1542124182 source:c:\users\eric\gamedev\fmsynth\src\systems\systemtimer.cpp
+	"SystemTimer.h"
+	<time.h>
+
+1543591734 source:c:\users\eric\gamedev\fmsynth\src\worlds\gameworld.cpp
+	"GameWorld.h"
+	"InputState.h"
+	<stdio.h>
+	<time.h>
+	<thread>
+	<memory>
+	"GameState.h"
+	"SystemTimer.h"
+	<iostream>
+
+1543595784 source:c:\users\eric\gamedev\fmsynth\src\systems\inputsystem.cpp
+	<SDL.h>
+	"InputSystem.h"
+	"InputState.h"
+	<string>
+	<iostream>
+	"EntityComponentManager.h"
+	"GameState.h"
+	"ThreadPool.h"
+	<future>
+	<fstream>
+	"SynthAssemblage.h"
+	<memory>
+	"DraggableComponent.h"
+	"PositionComponent.h"
+
+1543594064 source:c:\users\eric\gamedev\fmsynth\src\assemblages\synthassemblage.cpp
+	"SynthAssemblage.h"
+	"EntityComponentManager.h"
+	<memory>
+	"SdlRectangleComponent.h"
+	"PositionComponent.h"
+	"VisibleComponent.h"
+	"DraggableComponent.h"
+
+1543593325 c:\users\eric\gamedev\fmsynth\include\assemblages\synthassemblage.h
+	"EntityComponentManager.h"
+	<memory>
+
+1543592885 source:c:\users\eric\gamedev\fmsynth\src\components\gfx\colorcomponent.cpp
+	"ColorComponent.h"
+	"BaseComponent.h"
+	"SDL.h"
+
+1543592836 c:\users\eric\gamedev\fmsynth\include\components\gfx\colorcomponent.h
+	"BaseComponent.h"
+	"SDL.h"
+
+1543593975 source:c:\users\eric\gamedev\fmsynth\src\components\gfx\draggablecomponent.cpp
+	"DraggableComponent.h"
+
+1543594600 c:\users\eric\gamedev\fmsynth\include\components\gfx\draggablecomponent.h
+	"BaseComponent.h"
+

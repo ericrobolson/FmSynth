@@ -2,7 +2,7 @@
 #define SDLRECTANGLECOMPONENT_H
 
 #include "BaseComponent.h"
-
+#include "ColorComponent.h"
 
 class SdlRectangleComponent : public BaseComponent
 {
@@ -12,6 +12,7 @@ class SdlRectangleComponent : public BaseComponent
         int Width;
         int Height;
         int Filled;
+        ColorComponent Color;
 };
 
 #endif // SDLRECTANGLECOMPONENT_H

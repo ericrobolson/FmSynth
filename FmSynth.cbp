@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="SimpleGameEngine" />
+		<Option title="FmSynth" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
@@ -122,73 +122,37 @@
 			<Add directory="C:/TDM-GCC-32/lib" />
 			<Add directory="C:/mingw_dev_lib32bit/i686-w64-mingw32/lib" />
 		</Linker>
-		<Unit filename="include/Assemblages/PlayerAssemblage.h" />
-		<Unit filename="include/Assemblages/SolidObjectAssemblage.h" />
 		<Unit filename="include/BaseComponent.h" />
 		<Unit filename="include/BaseSystem.h" />
 		<Unit filename="include/BaseWorld.h" />
-		<Unit filename="include/Components/CanJumpComponent.h" />
-		<Unit filename="include/Components/DeckComponent.h" />
 		<Unit filename="include/Components/Gfx/SdlRectangleComponent.h" />
 		<Unit filename="include/Components/Gfx/VisibleComponent.h" />
-		<Unit filename="include/Components/HasJumpActionComponent.h" />
-		<Unit filename="include/Components/HitboxComponent.h" />
-		<Unit filename="include/Components/ImpassibleComponent.h" />
-		<Unit filename="include/Components/MovementComponent.h" />
-		<Unit filename="include/Components/PlayerComponent.h" />
 		<Unit filename="include/Components/PositionComponent.h" />
 		<Unit filename="include/Debugger.h" />
 		<Unit filename="include/EntityComponentManager.h" />
-		<Unit filename="include/EventQueue/EventQueue.h" />
-		<Unit filename="include/Serialization/LevelLoader.h" />
-		<Unit filename="include/Serialization/StringOperations.h" />
 		<Unit filename="include/State/GameState.h" />
 		<Unit filename="include/State/InputState.h" />
-		<Unit filename="include/Systems/CollisionSystem.h" />
 		<Unit filename="include/Systems/GraphicsSystem.h" />
 		<Unit filename="include/Systems/InputSystem.h" />
-		<Unit filename="include/Systems/MovementSystem.h" />
 		<Unit filename="include/Systems/PositionSystem.h" />
 		<Unit filename="include/Systems/SystemTimer.h" />
 		<Unit filename="include/Threading/SafeQueue.h" />
 		<Unit filename="include/Threading/ThreadPool.h" />
 		<Unit filename="include/Worlds/GameWorld.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="src/Assemblages/PlayerAssemblage.cpp" />
-		<Unit filename="src/Assemblages/SolidObjectAssemblage.cpp" />
 		<Unit filename="src/BaseComponent.cpp" />
 		<Unit filename="src/BaseSystem.cpp" />
 		<Unit filename="src/BaseWorld.cpp" />
-		<Unit filename="src/Components/CanJumpComponent.cpp" />
-		<Unit filename="src/Components/DeckComponent.cpp" />
 		<Unit filename="src/Components/Gfx/SdlRectangleComponent.cpp" />
 		<Unit filename="src/Components/Gfx/VisibleComponent.cpp" />
-		<Unit filename="src/Components/HasJumpActionComponent.cpp" />
-		<Unit filename="src/Components/HitboxComponent.cpp" />
-		<Unit filename="src/Components/ImpassibleComponent.cpp" />
-		<Unit filename="src/Components/MovementComponent.cpp" />
-		<Unit filename="src/Components/PlayerComponent.cpp" />
 		<Unit filename="src/Components/PositionComponent.cpp" />
-		<Unit filename="src/EventQueue/EventQueue.cpp" />
-		<Unit filename="src/Serialization/LevelLoader.cpp" />
-		<Unit filename="src/Serialization/StringOperations.cpp" />
 		<Unit filename="src/State/GameState.cpp" />
 		<Unit filename="src/State/InputState.cpp" />
-		<Unit filename="src/Systems/CollisionSystem.cpp" />
 		<Unit filename="src/Systems/GraphicsSystem.cpp" />
 		<Unit filename="src/Systems/InputSystem.cpp" />
-		<Unit filename="src/Systems/MovementSystem.cpp" />
 		<Unit filename="src/Systems/PositionSystem.cpp" />
 		<Unit filename="src/Systems/SystemTimer.cpp" />
 		<Unit filename="src/Worlds/GameWorld.cpp" />
-		<Unit filename="tests/Components/DeckComponentTests.cpp">
-			<Option target="Release" />
-			<Option target="Testing" />
-		</Unit>
-		<Unit filename="tests/Serialization/StringOperationsTests.cpp">
-			<Option target="Release" />
-			<Option target="Testing" />
-		</Unit>
 		<Unit filename="tests/catch.hpp">
 			<Option target="Release" />
 			<Option target="Testing" />

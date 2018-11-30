@@ -5,25 +5,14 @@
 #include <thread>
 #include <memory>
 
-#include <MovementComponent.h>
-#include <PositionComponent.h>
-#include <HitboxComponent.h>
-#include <ImpassibleComponent.h>
-#include <PlayerAssemblage.h>
 #include "GameState.h"
-#include "LevelLoader.h"
 #include "SystemTimer.h"
 
 #include <iostream>
 
 GameWorld::GameWorld() : BaseWorld()
 {
-    _graphicsSystem.DrawHitboxes = true;
-
     _cycleClock = clock();
-
-    LevelLoader loader;
-    loader.LoadLevel("room_001", entityComponentManager);
 }
 
 GameWorld::~GameWorld()
@@ -32,27 +21,14 @@ GameWorld::~GameWorld()
 }
 
 bool GameWorld::Process(){
-    if (_systemTimer.CanRun(60)){
-        _inputSystem.Process(entityComponentManager);
+    _inputSystem.Process(entityComponentManager);
 
-        if (!GameState::Instance().Paused){
-            _movementSystem.Process(entityComponentManager);
-        }
+    _positionSystem.Process(entityComponentManager);
 
-        if (!GameState::Instance().Paused){
-            _collisionSystem.Process(entityComponentManager);
-            _positionSystem.Process(entityComponentManager);
-        }
+    _graphicsSystem.Process(entityComponentManager);
 
-
-        bool finishedProcessing = true;
-        while(_graphicsSystem.Process(entityComponentManager) != finishedProcessing);
-
-        if (InputState::Instance().Exit == true){
-            return false;
-        }
-
-        _systemTimer.ResetClock();
+    if (InputState::Instance().Exit == true){
+        return false;
     }
 
     return true;
