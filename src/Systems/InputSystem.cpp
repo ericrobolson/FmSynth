@@ -12,6 +12,7 @@
 #include <memory>
 #include "DraggableComponent.h"
 #include "PositionComponent.h"
+#include "BaseSliderComponent.h"
 
 InputSystem::InputSystem() : BaseSystem()
 {
@@ -22,6 +23,8 @@ InputSystem::InputSystem() : BaseSystem()
 }
 
 void LeftClickReleaseEvent(ECS::EntityComponentManager &ecs){
+
+    // Move draggable components
     std::vector<int> entities = ecs.Search<DraggableComponent>();
 
     std::vector<int>::iterator ptr;
@@ -31,13 +34,20 @@ void LeftClickReleaseEvent(ECS::EntityComponentManager &ecs){
         DraggableComponent& d = *ecs.GetComponent<DraggableComponent>(entityId);
         d.Dragging = false;
     }
+
+    // Move sliders
+    entities = ecs.Search<BaseSliderComponent>();
+    for (ptr = entities.begin(); ptr < entities.end(); ptr++){
+        int entityId = *ptr;
+
+        BaseSliderComponent& d = *ecs.GetComponent<BaseSliderComponent>(entityId);
+        d.Dragging = false;
+    }
 }
 
 void LeftClickEvent(ECS::EntityComponentManager &ecs){
-    std::vector<int> entities = ecs.Search<DraggableComponent>();
-
     // Get only things that could have been partially clicked on
-    entities = ecs.SearchOn<PositionComponent>(entities,
+    std::vector<int> positionEntities = ecs.Search<PositionComponent>(
         [](PositionComponent p){
             int cursorX = InputState::Instance().CursorX;
             int cursorY = InputState::Instance().CursorY;
@@ -56,17 +66,34 @@ void LeftClickEvent(ECS::EntityComponentManager &ecs){
     int draggableHeight = DraggableComponent::Height;
 
     std::vector<int>::iterator ptr;
-    for (ptr = entities.begin(); ptr < entities.end(); ptr++){
+    for (ptr = positionEntities.begin(); ptr < positionEntities.end(); ptr++){
         int entityId = *ptr;
 
         PositionComponent p = *ecs.GetComponent<PositionComponent>(entityId);
 
-        // Check to see if the click was on a draggable position
-        if (cursorX <= (p.PositionX + draggableWidth) && cursorY <= (p.PositionY + draggableHeight))
-        {
-            DraggableComponent& d = *ecs.GetComponent<DraggableComponent>(entityId);
-            d.Dragging = true;
+        // Check to see if the click was on a draggable component
+        std::shared_ptr<DraggableComponent> dragPtr = ecs.GetComponent<DraggableComponent>(entityId);
+        if (dragPtr != nullptr){
+            if (cursorX <= (p.PositionX + draggableWidth) && cursorY <= (p.PositionY + draggableHeight))
+            {
+                DraggableComponent& d = *dragPtr.get();
+                d.Dragging = true;
+            }
         }
+
+        // Check to see if the click was on a slider
+        std::shared_ptr<BaseSliderComponent> slidePtr = ecs.GetComponent<BaseSliderComponent>(entityId);
+        if (slidePtr != nullptr){
+            BaseSliderComponent& d = *slidePtr.get();
+
+            if (cursorX <= (p.PositionX + d.xOffset + d.Width) && cursorX >= (p.PositionX + d.xOffset)
+                && cursorY <= (p.PositionY + d.yOffset + d.Height) && cursorY >= (p.PositionY + d.yOffset))
+            {
+                d.Dragging = true;
+                d.cursorStartY = InputState::Instance().CursorY;
+            }
+        }
+
     }
 }
 

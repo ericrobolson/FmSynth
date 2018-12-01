@@ -12,6 +12,7 @@
 #include "VisibleComponent.h"
 #include "SdlRectangleComponent.h"
 #include "DraggableComponent.h"
+#include "BaseSliderComponent.h"
 
 const int SCREEN_WIDTH = 1920;
 const int SCREEN_HEIGHT = 1080;
@@ -82,6 +83,52 @@ void GraphicsSystem::ProcessJob(ECS::EntityComponentManager &ecs, int entityId){
         SDL_RenderDrawRect(_renderer, &sdlRect);
 
     }
+
+    std::shared_ptr<BaseSliderComponent> sliderPtr = ecs.GetComponent<BaseSliderComponent>(entityId);
+    if (sliderPtr != nullptr){
+        BaseSliderComponent sliderComponent = *sliderPtr.get();
+
+        // Draw bounding rectangle
+        SDL_SetRenderDrawColor(_renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+        SDL_Rect sdlRect;
+        sdlRect.x = position.PositionX + sliderComponent.xOffset;
+        sdlRect.y = position.PositionY + sliderComponent.yOffset;
+        sdlRect.w = sliderComponent.Width;
+        sdlRect.h = sliderComponent.Height;
+
+        // Draw red background
+        SDL_SetRenderDrawColor(_renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
+        SDL_RenderFillRect(_renderer, &sdlRect);
+
+
+        // Draw current value
+        SDL_Rect sdlCurrentValueRec;
+        sdlCurrentValueRec.x = position.PositionX + sliderComponent.xOffset;
+        sdlCurrentValueRec.w = sliderComponent.Width;
+
+        // Set the current value and apply the offset
+        int currentValueOffset = sliderComponent.MaxValue - sliderComponent.CurrentValue;
+
+        sdlCurrentValueRec.y = position.PositionY + sliderComponent.yOffset + currentValueOffset;
+        sdlCurrentValueRec.h = sliderComponent.CurrentValue;
+
+
+        SDL_SetRenderDrawColor(_renderer, 0, 255, 0, SDL_ALPHA_OPAQUE);
+        SDL_RenderFillRect(_renderer, &sdlCurrentValueRec);
+
+
+
+
+        // Draw bounding rectangle
+        SDL_SetRenderDrawColor(_renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+        SDL_RenderDrawRect(_renderer, &sdlRect);
+
+
+
+
+    }
+
+
 
 /*
     // Draw Hitboxes

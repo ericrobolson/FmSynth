@@ -5,6 +5,7 @@
 #include "PositionComponent.h"
 #include "VisibleComponent.h"
 #include "DraggableComponent.h"
+#include "BaseSliderComponent.h"
 
 SynthAssemblage::SynthAssemblage()
 {
@@ -36,6 +37,7 @@ std::shared_ptr<int> SynthAssemblage::Create(ECS::EntityComponentManager &ecs, i
         ecs.AddComponent<VisibleComponent>(id);
         ecs.AddComponent<DraggableComponent>(id);
 
+        ecs.AddComponent<BaseSliderComponent>(id);
     }
 
     return entityId;

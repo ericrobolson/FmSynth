@@ -8,6 +8,7 @@
 #include "GameState.h"
 #include "DraggableComponent.h"
 #include "InputState.h"
+#include "BaseSliderComponent.h"
 
 PositionSystem::PositionSystem() : BaseSystem()
 {
@@ -28,6 +29,18 @@ void ProcessJob(ECS::EntityComponentManager &ecs, int entityIndex){
         if (d.Dragging){
             positionComponent.PositionX = InputState::Instance().CursorX;
             positionComponent.PositionY = InputState::Instance().CursorY;
+        }
+    }
+
+    std::shared_ptr<BaseSliderComponent> slidePtr = ecs.GetComponent<BaseSliderComponent>(entityIndex);
+    if (slidePtr != nullptr){
+        BaseSliderComponent& s = *slidePtr.get();
+        if (s.Dragging){
+                // Apply offset to set the current value
+            int yOffset = s.yOffset + positionComponent.PositionY;
+
+            int value = s.cursorStartY - InputState::Instance().CursorY;
+            s.SetCurrentValue(value);
         }
     }
 
